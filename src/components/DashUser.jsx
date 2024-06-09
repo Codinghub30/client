@@ -14,7 +14,7 @@ export default function DashUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`/api/user/getusers`);
+        const res = await fetch(`${process.env.BASE_URL}/api/user/getusers`);
         const data = await res.json();
         if (res.ok) {
           setUsers(data.users);
@@ -34,7 +34,7 @@ export default function DashUsers() {
   const handleShowMore = async () => {
     const startIndex = users.length;
     try {
-      const res = await fetch(`/api/user/getusers?startIndex=${startIndex}`);
+      const res = await fetch(`${process.env.BASE_URL}/api/user/getusers?startIndex=${startIndex}`);
       const data = await res.json();
       if (res.ok) {
         setUsers((prev) => [...prev, ...data.users]);
@@ -49,7 +49,7 @@ export default function DashUsers() {
 
   const handleDeleteUser = async () => {
     try {
-        const res = await fetch(`/api/user/delete/${userIdToDelete}`, {
+        const res = await fetch(`${process.env.BASE_URL}/api/user/delete/${userIdToDelete}`, {
             method: 'DELETE',
         });
         const data = await res.json();

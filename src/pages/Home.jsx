@@ -11,8 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('/api/post/getposts', {
-          mode: 'cors', // Ensure mode is set to 'cors'
+        const res = await fetch(`${process.env.BASE_URL}/api/post/getposts`, {
         });
         if (!res.ok) {
           throw new Error('Network response was not ok');
