@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`${process.env.BASE_URL}/api/post/getposts`, {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/api/post/getposts`, {
         });
         if (!res.ok) {
           throw new Error('Network response was not ok');
